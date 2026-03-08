@@ -1,0 +1,10 @@
+17:37:54.656 [main] INFO  lab.App - Aplikace SandTris se spouští
+17:37:54.868 [JavaFX Application Thread] INFO  lab.App - Hlavní okno aplikace zobrazeno
+17:37:58.731 [JavaFX Application Thread] INFO  lab.App - Spouštění nové hry
+17:37:58.773 [JavaFX Application Thread] DEBUG lab.scenes.GameController - Načteno 0 skóre z repozitáře
+17:37:58.773 [JavaFX Application Thread] INFO  lab.scenes.GameController - Spouštění nové hry
+17:37:58.876 [JavaFX Application Thread] DEBUG lab.App - Herní scéna načtena, speed=80
+17:38:20.189 [JavaFX Application Thread] INFO  lab.scenes.GameController - Uživatel stiskl tlačítko Exit
+17:38:20.190 [JavaFX Application Thread] DEBUG lab.App - Čištění herního controlleru
+17:38:20.190 [JavaFX Application Thread] INFO  lab.scenes.GameController -  zastavuji herní controller
+17:38:26.067 [JavaFX Application Thread] DEBUG lab.App - Ukončení programu

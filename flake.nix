@@ -25,9 +25,7 @@
           ...
         }:
         let
-          java = pkgs.jdk25.override {
-            enableJavaFX = true;
-          };
+          java = pkgs.jdk25;
           javafx = pkgs.openjfx25;
           maven = pkgs.maven;
           sb = pkgs.scenebuilder;
@@ -37,30 +35,31 @@
           devShells.default = pkgs.mkShell {
             buildInputs = [
               java
+              javafx
               maven
               sb
 
-              #pkgs.glib
-              #pkgs.gtk3
-              #pkgs.libGL
-              #pkgs.libxtst
-              #pkgs.libx11
-              #pkgs.libxxf86vm
+              pkgs.glib
+              pkgs.gtk3
+              pkgs.libGL
+              pkgs.libxtst
+              pkgs.libx11
+              pkgs.libxxf86vm
             ];
 
-            #shellHook = ''
-            #  export JAVA_HOME="${pkgs.openjdk25}/lib/openjdk"
-            #  export PATH="$JAVA_HOME/bin:$PATH"
-            #  export LD_LIBRARY_PATH="${
-            #    pkgs.lib.makeLibraryPath [
-            #      pkgs.glib
-            #      pkgs.gtk3
-            #      pkgs.libGL
-            #      pkgs.libxtst
-            #    ]
-            #  }:$LD_LIBRARY_PATH"
-            #  export JAVAFX_PATH="${pkgs.openjfx25}/lib"
-            #'';
+            shellHook = ''
+              export JAVA_HOME="${pkgs.openjdk25}/lib/openjdk"
+              export PATH="$JAVA_HOME/bin:$PATH"
+              export LD_LIBRARY_PATH="${
+                pkgs.lib.makeLibraryPath [
+                  pkgs.glib
+                  pkgs.gtk3
+                  pkgs.libGL
+                  pkgs.libxtst
+                ]
+              }:$LD_LIBRARY_PATH"
+              export JAVAFX_PATH="${pkgs.openjfx25}/lib"
+            '';
           };
         };
     };
