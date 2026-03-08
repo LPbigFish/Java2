@@ -1,0 +1,7 @@
+2026-02-24 00:16:31.677027+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SCORES" already exists; SQL statement:
+CREATE TABLE Scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    points integer
+) [42101-240]

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <RollingFile name="RollingFile" fileName="logs/app.log"
+                     filePattern="logs/app-%d{yyyy-MM-dd-HH-mm-ss}-%i.log.gz">
+            <PatternLayout>
+                <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="50MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="5">
+                <Delete basePath="logs" maxDepth="1">
+                    <IfFileName glob="app-*.log.gz" />
+                    <IfLastModified age="1d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="lab" level="trace">
+            <AppenderRef ref="RollingFile" />
+        </Logger>
+        <Logger name="lab.score" level="debug">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Root level="error">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>
